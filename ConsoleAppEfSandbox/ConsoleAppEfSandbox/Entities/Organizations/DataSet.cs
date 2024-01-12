@@ -1,6 +1,8 @@
-﻿namespace ConsoleAppEfSandbox.Entities.Organizations
+﻿namespace ConsoleAppEfSandbox.Entities.Organizations;
+
+public class DataSet
 {
-    public class DataSet : AuditableEntity
-    {
-    }
+    public int Id { get; set; }
+    public int? CreatedByUserId { get; set; }
+    public User? CreatedByUser { get; set; }
 }

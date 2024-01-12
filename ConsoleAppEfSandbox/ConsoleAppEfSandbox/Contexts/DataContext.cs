@@ -18,25 +18,15 @@ public class DataContext : DbContext
         modelBuilder.Entity<Entities.Dts.DataSet>(b =>
         {
             b.HasKey(a => a.Id);
-            b.IsAuditable();
+            b.HasOne(x => x.CreatedByUser).WithMany().HasForeignKey(x => x.CreatedByUserId).OnDelete(DeleteBehavior.Restrict);
             b.ToTable("data_sets", "dts");
         });
 
         modelBuilder.Entity<Entities.Organizations.DataSet>(b =>
         {
             b.HasKey(a => a.Id);
-            b.IsAuditable();
+            b.HasOne(x => x.CreatedByUser).WithMany().HasForeignKey(x => x.CreatedByUserId).OnDelete(DeleteBehavior.Restrict);
             b.ToTable("data_sets", "organizations");
         });
-    }
-}
-
-public static class AuditableExtensions
-{
-    public static EntityTypeBuilder<TEntity> IsAuditable<TEntity>(this EntityTypeBuilder<TEntity> entityTypeBuilder)
-        where TEntity : AuditableEntity
-    {
-        entityTypeBuilder.HasOne(x => x.CreatedByUser).WithMany().HasForeignKey(x => x.CreatedByUserId).OnDelete(DeleteBehavior.Restrict);
-        return entityTypeBuilder;
     }
 }

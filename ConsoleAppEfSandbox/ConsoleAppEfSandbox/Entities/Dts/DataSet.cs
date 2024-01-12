@@ -1,6 +1,8 @@
-﻿namespace ConsoleAppEfSandbox.Entities.Dts
+﻿namespace ConsoleAppEfSandbox.Entities.Dts;
+
+public class DataSet
 {
-    public class DataSet : AuditableEntity
-    {
-    }
+    public int Id { get; set; }
+    public int? CreatedByUserId { get; set; }
+    public User? CreatedByUser { get; set; }
 }

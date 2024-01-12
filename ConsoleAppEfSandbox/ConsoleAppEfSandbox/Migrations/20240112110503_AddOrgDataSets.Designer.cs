@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ConsoleAppEfSandbox.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240111175227_AddOrgDataSets")]
+    [Migration("20240112110503_AddOrgDataSets")]
     partial class AddOrgDataSets
     {
         /// <inheritdoc />
